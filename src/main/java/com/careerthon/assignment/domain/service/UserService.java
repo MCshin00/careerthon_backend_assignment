@@ -2,6 +2,8 @@ package com.careerthon.assignment.domain.service;
 
 import com.careerthon.assignment.domain.dtos.request.ReqPostSignUpDto;
 import com.careerthon.assignment.domain.dtos.response.ResPostSignUpDto;
+import com.careerthon.assignment.exception.UserException;
+import com.careerthon.assignment.exception.UserExceptionMessage;
 import com.careerthon.assignment.model.entity.User;
 import com.careerthon.assignment.model.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,8 @@ public class UserService {
 
     @Transactional
     public ResPostSignUpDto signup(ReqPostSignUpDto requestDto) {
+        checkUsername(requestDto.getUsername());
+
         String encodedPassword = passwordEncoder.encode(requestDto.getPassword());
 
         User user = requestDto.toEntity(encodedPassword);
@@ -30,4 +34,9 @@ public class UserService {
                 .build();
     }
 
+    private void checkUsername(String username) {
+        if (userRepository.existsByUsername(username)) {
+            throw new UserException(UserExceptionMessage.USER_ALREADY_EXISTS);
+        }
+    }
 }
