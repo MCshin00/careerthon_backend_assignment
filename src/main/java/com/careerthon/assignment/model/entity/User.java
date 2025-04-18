@@ -32,4 +32,8 @@ public class User {
 
     @Enumerated(value = EnumType.STRING)
     private UserRole role;
+
+    public void updateRole(UserRole role) {
+        this.role = role;
+    }
 }
