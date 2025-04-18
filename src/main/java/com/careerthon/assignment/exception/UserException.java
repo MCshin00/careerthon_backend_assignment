@@ -11,5 +11,4 @@ public class UserException extends RuntimeException {
         super(errorCode.getMessage());
         this.errorCode = errorCode;
     }
-
 }
