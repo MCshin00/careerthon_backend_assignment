@@ -36,6 +36,7 @@ public class UserService {
         userRepository.save(user);
 
         return ResPostSignUpDto.builder()
+                .userId(user.getId())
                 .username(user.getUsername())
                 .nickname(user.getNickname())
                 .role(user.getRole())
