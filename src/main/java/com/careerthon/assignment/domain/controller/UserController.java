@@ -1,6 +1,8 @@
 package com.careerthon.assignment.domain.controller;
 
+import com.careerthon.assignment.domain.dtos.request.ReqPostLoginDto;
 import com.careerthon.assignment.domain.dtos.request.ReqPostSignUpDto;
+import com.careerthon.assignment.domain.dtos.response.ResPostLoginDto;
 import com.careerthon.assignment.domain.dtos.response.ResPostSignUpDto;
 import com.careerthon.assignment.domain.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -20,5 +22,12 @@ public class UserController {
         ResPostSignUpDto responseDto = userService.signup(reqPostSignUpDto);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
+    }
+
+    @PostMapping("login")
+    public ResponseEntity<ResPostLoginDto> login(@RequestBody ReqPostLoginDto reqPostLoginDto) {
+        ResPostLoginDto responseDto = userService.login(reqPostLoginDto);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseDto);
     }
 }
