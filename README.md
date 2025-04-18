@@ -40,7 +40,7 @@
 }
 ```
 
-### 관리자 권한 부여 API 요청 주소(PATCH) : http://15.164.20.131:8080/15.164.20.131:8080/admin/users/{userId}/roles
+### 관리자 권한 부여 API 요청 주소(PATCH) : http://15.164.20.131:8080/admin/users/{userId}/roles
 - request body : 없음
 
 - response body
