@@ -1,5 +1,6 @@
 package com.careerthon.assignment.domain.controller;
 
+import com.careerthon.assignment.domain.docs.UserControllerDocs;
 import com.careerthon.assignment.domain.dtos.request.ReqPostLoginDto;
 import com.careerthon.assignment.domain.dtos.request.ReqPostSignUpDto;
 import com.careerthon.assignment.domain.dtos.response.ResPatchToAdminDto;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class UserController {
+public class UserController implements UserControllerDocs {
     private final UserService userService;
 
     @PostMapping("signup")
