@@ -1,4 +1,4 @@
-package com.careerthon.assignment.dtos;
+package com.careerthon.assignment.domain.dtos;
 
 import lombok.Builder;
 import lombok.Getter;

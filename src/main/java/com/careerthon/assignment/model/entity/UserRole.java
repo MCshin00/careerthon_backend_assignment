@@ -1,4 +1,4 @@
-package com.careerthon.assignment.entity;
+package com.careerthon.assignment.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;

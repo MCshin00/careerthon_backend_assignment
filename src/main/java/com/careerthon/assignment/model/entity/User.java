@@ -1,4 +1,4 @@
-package com.careerthon.assignment.entity;
+package com.careerthon.assignment.model.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
