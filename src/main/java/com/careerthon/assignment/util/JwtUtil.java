@@ -1,6 +1,5 @@
 package com.careerthon.assignment.util;
 
-import com.careerthon.assignment.exception.CustomJwtException;
 import com.careerthon.assignment.exception.JwtExceptionMessage;
 import com.careerthon.assignment.model.entity.UserRole;
 import io.jsonwebtoken.Claims;
@@ -22,7 +21,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-@Slf4j(topic="jwtUtil")
+@Slf4j(topic = "jwtUtil")
 @Component
 public class JwtUtil {
     public static final String AUTHORIZATION_HEADER = "Authorization";
@@ -72,7 +71,7 @@ public class JwtUtil {
                 .getBody();
     }
 
-    public void validateToken(String token) {
+    public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
 
@@ -80,8 +79,9 @@ public class JwtUtil {
                  UnsupportedJwtException | IllegalArgumentException e) {
 
             log.warn(JwtExceptionMessage.INVALID_TOKEN.getMessage());
-            throw new CustomJwtException(e.getMessage());
-
+            return false;
         }
+
+        return true;
     }
 }

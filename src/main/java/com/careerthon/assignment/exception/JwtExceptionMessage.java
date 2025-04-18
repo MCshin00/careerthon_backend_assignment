@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum JwtExceptionMessage {
+public enum JwtExceptionMessage implements ErrorCode {
     INVALID_TOKEN("유효하지 않은 인증 토큰입니다.");
 
     private final String message;

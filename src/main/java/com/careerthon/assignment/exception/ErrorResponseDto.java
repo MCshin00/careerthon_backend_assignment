@@ -1,6 +1,5 @@
-package com.careerthon.assignment.domain.dtos.response;
+package com.careerthon.assignment.exception;
 
-import com.careerthon.assignment.exception.UserExceptionMessage;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -16,7 +15,7 @@ public class ErrorResponseDto {
         private String message;
     }
 
-    public static ErrorResponseDto of(UserExceptionMessage message) {
+    public static <T extends ErrorCode> ErrorResponseDto of(T message) {
         return ErrorResponseDto.builder()
                 .error(ErrorDetail.builder()
                         .code(message.name())
